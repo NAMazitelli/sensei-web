@@ -1,10 +1,10 @@
 {
-  "name": "wanted-web",
+  "name": "sensei node",
   "version": "0.1.0",
-  "description": "Wanted Web",
+  "description": "Sensei Node Web",
   "main": "src/index.js",
-  "hompage": "https://wanted-web.netlify.app/",
-  "repository": "https://wanted-web.netlify.app/",
+  "hompage": "https://sensei-node.netlify.app/",
+  "repository": "https://sensei-node.netlify.app/",
   "author": "nico",
   "license": "MIT",
   "engines": {

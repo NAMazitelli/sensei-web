@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <footer css={[footerStyle]}>
       <nav>
-        <div>{new Date().getFullYear()} &copy; Wanted crew</div>
+        <div>{new Date().getFullYear()} &copy; Sensei Node</div>
       </nav>
     </footer>
   );
