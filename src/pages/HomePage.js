@@ -6,6 +6,7 @@ import ImageWithText from '../components/image-text';
 import StyledSection from '../components/styled-section';
 import CompanyOverview from '../components/company-overview';
 import OnboardingProcess from '../components/onboarding-process';
+import ServicesList from '../components/services-list';
 
 const HomePage = () => {
   return (
@@ -15,11 +16,13 @@ const HomePage = () => {
       <StyledSection color={"gray"} >
         <CompanyOverview />
         <OnboardingProcess />
+      </StyledSection>
 
+      <StyledSection color={"white"} >
       </StyledSection>
 
       <StyledSection color={"black"} >
-
+        <ServicesList />
       </StyledSection>
     </>
   );
