@@ -60,7 +60,7 @@ const Hero = () => {
       <div class="container">
         <div class="title">
             <h1>The revolution will be decentralized.</h1>
-            <img class="hero-image" src="public/hero-1.png" />
+            <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
             <h1>Own your node.</h1>
             <h2>Accesible and reliable one-click private nodes for everybody.</h2>
         </div>

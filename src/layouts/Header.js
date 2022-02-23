@@ -134,7 +134,7 @@ const Header = () => {
       <div class="container">
         <div class="logo-container">
           <Link to="/" replace={pathname === '/'}>
-            <img src={'public/sensei-logo.png'} />
+            <img src={'https://i2.lensdump.com/i/refRDk.png'} />
           </Link>
         </div>
         <div css={[StylesMenuMobile]}>

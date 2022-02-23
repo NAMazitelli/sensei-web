@@ -100,7 +100,7 @@ const OnboardingProcess = () => {
           </div>
           <div class="image-container">
             <img class="btm-lines" src="/public/bottom-image-lines.png" />
-            <img class="mid-circles" src="/public/middle-circles.png" />
+            <img class="mid-circles" src="https://i.lensdump.com/i/reftZa.png" />
           </div>
         </div>
       </div>
