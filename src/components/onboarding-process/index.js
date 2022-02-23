@@ -99,7 +99,7 @@ const OnboardingProcess = () => {
             significantly reducing the time to market without sacrificing the performance.
           </div>
           <div class="image-container">
-            <img class="btm-lines" src="/public/bottom-image-lines.png" />
+            <img class="btm-lines" src="https://i3.lensdump.com/i/refQEK.png" />
             <img class="mid-circles" src="https://i.lensdump.com/i/reftZa.png" />
           </div>
         </div>
