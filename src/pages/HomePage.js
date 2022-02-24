@@ -7,7 +7,7 @@ import StyledSection from '../components/styled-section';
 import CompanyOverview from '../components/company-overview';
 import OnboardingProcess from '../components/onboarding-process';
 import ServicesList from '../components/services-list';
-
+import ProtocolsSupported from '../components/protocols-supported'
 const HomePage = () => {
   return (
     <>
@@ -23,6 +23,18 @@ const HomePage = () => {
 
       <StyledSection color={"black"} >
         <ServicesList />
+      </StyledSection>
+      <StyledSection color={"white"} >
+        <ProtocolsSupported />
+      </StyledSection>
+
+      <StyledSection color={"gray"} >
+      </StyledSection>
+
+      <StyledSection color={"white"} >
+      </StyledSection>
+
+      <StyledSection color={"green"} >
       </StyledSection>
     </>
   );

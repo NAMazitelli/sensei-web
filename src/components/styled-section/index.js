@@ -25,6 +25,11 @@ const StyledSection = ({ children, color, styles={}}) => {
     text: '#FFC515',
   };
 
+  themes['green'] = {
+    main: '#34C55D',
+    text: '#000',
+  };
+
   const Style = css`
     background: ${themes[color].main};
     position:relative;

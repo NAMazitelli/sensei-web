@@ -2,7 +2,9 @@ import React from 'react';
 import { css } from '@emotion/react';
 
 const footerStyle = css`
-  padding: 150px 16px 50px;
+  padding: 20px;
+  background: #3F3FF9;
+
   & > nav {
     margin: 0 auto;
     max-width: 1440px;
@@ -10,9 +12,24 @@ const footerStyle = css`
     align-items: center;
     justify-content: space-between;
 
-    svg {
-      width: 2rem;
-      height: 2rem;
+    .social-container {
+      display: flex;
+      flex-direction: column;
+      span {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #C4C4C4;
+      }
+      .social-buttons {
+        margin-bottom: 80px;
+        a { margin-right: 15px; }
+      }
+      .terms {
+        a {
+          margin-right:60px;
+          text-decoration: underline;
+        }
+      }
     }
   }
 `;
@@ -21,7 +38,25 @@ const Footer = () => {
   return (
     <footer css={[footerStyle]}>
       <nav>
-        <div>{new Date().getFullYear()} &copy; Sensei Node</div>
+        <div className="sensei-logo-container">
+          <img src="https://i3.lensdump.com/i/reGyIC.png"/>
+        </div>
+        <div className="social-container"> 
+          <span>Connect with Sensei Node</span>
+          <div className="social-buttons">
+            <a href="twitter.com" href="_blank">
+              <img src="https://i1.lensdump.com/i/reGGoz.png" />
+            </a>
+            <a href="linkedin.com" href="_blank">
+              <img src="https://i2.lensdump.com/i/reGh8T.png" />
+            </a>
+          </div>
+
+          <div className="terms">
+            <a href="#"> Privacy Policy</a>
+            <a href="#"> Terms & conditions </a>
+          </div>
+        </div>
       </nav>
     </footer>
   );

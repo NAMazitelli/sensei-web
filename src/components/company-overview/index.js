@@ -20,13 +20,16 @@ const Styles = css`
     }
   }
 
+  p {
+    margin-top: 20px;
+  }
+
   .tag {
     background: #000;
     color: #fff;
     border-radius: 60px;
     padding: 5px 10px;
     font-size: 1.2rem;
-    margin-bottom: 10px;
   }
   
   .content-left {
