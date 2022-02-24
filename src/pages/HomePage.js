@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 
 import Hero from '../components/hero';
-import ImageWithText from '../components/image-text';
+import Investors from '../components/investors';
 import StyledSection from '../components/styled-section';
 import CompanyOverview from '../components/company-overview';
 import OnboardingProcess from '../components/onboarding-process';
@@ -29,6 +29,7 @@ const HomePage = () => {
       </StyledSection>
 
       <StyledSection color={"gray"} >
+        <Investors />
       </StyledSection>
 
       <StyledSection color={"white"} >
