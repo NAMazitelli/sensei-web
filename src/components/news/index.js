@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, createRef, useEffect } from 'react';
 import { css } from '@emotion/react';
 import media from '../../styles/media';
 import NewsIcon from '../icons/news';
@@ -42,7 +43,7 @@ const Styles = css`
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    
+    cursor: grab;
   }
 
   .news-container {
@@ -210,6 +211,41 @@ const NewBox = ({title, date, description, picture, link}) => {
 }
 
 const News = () => {
+  const [ isDragging, setIsDragging ] = useState(false);
+  const [ position, setPosition ] = useState({
+    top: 0,
+    left: 0,
+    x: 0,
+    y: 0,
+  });
+  
+  const myRef = createRef();
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      const dx = e.clientX - position.x;
+      const dy = e.clientY - position.y;
+
+      // Scroll the element
+      myRef.current.scrollTop = position.top - dy;
+      myRef.current.scrollLeft = position.left - dx;
+    }
+  }
+
+  const handleMouseDown = (e) => {
+    setPosition({
+      left: myRef.current.scrollLeft,
+      top: myRef.current.scrollTop,
+      x: e.clientX,
+      y: e.clientY,
+    })
+    setIsDragging(true);
+  }
+
+  const handleMouseUp = (e) => {
+    setIsDragging(false);
+  }
+
   return (
     <div css={[Styles]}>
       <div class="container">
@@ -219,7 +255,11 @@ const News = () => {
         <h2>See who's talking about SenseiNode in the press.</h2>
       </div>
 
-      <div className="slider-container">
+      <div className="slider-container"
+        onMouseDown={handleMouseDown} 
+        onMouseUp={handleMouseUp} 
+        onMouseMove={handleMouseMove}
+        ref={myRef}>
         <div className="news-container">
           { news.map((newdata) => <NewBox {...newdata} />) }
         </div>
