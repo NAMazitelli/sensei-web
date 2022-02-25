@@ -6,6 +6,7 @@ import 'reset-css';
 import 'normalize.css';
 import App from './App';
 
+
 ReactDOM.render(
   <HashRouter>
     <App />

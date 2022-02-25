@@ -1,12 +1,14 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import media from '../../styles/media';
-
+import Slider from 'react-slick';
 const Styles = css`
-  height: 600px;
   background: #0C0C0C;
   z-index: 2;
   position: relative;
+  height: calc(100vh - 100px);
+  position: relative;
+  z-index: 4;
   h1 {
     font-size: 4rem;
     text-align: center;
@@ -32,9 +34,11 @@ const Styles = css`
   .hero-image {
     max-width: 100%;
   }
+
   .hero-image-mobile {
     display:none;
   }
+
   ${media.medium} {
     padding-top: 0;
     height: calc(100vh);
@@ -73,19 +77,60 @@ const Styles = css`
   }
 `;
 
+const StylesContainer = css`
+
+
+`;
 const Hero = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
-    <section css={[Styles]}>
-      <div class="container">
-        <div class="title">
-            <h1>The Revolution will be Decentralized.</h1>
-            <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
-            <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
-            <h1>Own your node.</h1>
-            <h2>Accesible and reliable one-click private nodes for everybody.</h2>
-        </div>
-      </div>
-    </section>
+    <div css={[Styles]}>
+      <Slider {...settings}>
+        <section >
+          <div class="container">
+            <div class="title">
+                <h1>The Revolution will be Decentralized.</h1>
+                <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
+                <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
+                <h1>Own your node.</h1>
+                <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+            </div>
+          </div>
+        </section>
+
+        <section className="hero-2" >
+          <div class="container">
+            <div class="title">
+                <h1>HERO 2</h1>
+                <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
+                <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
+                <h1>Own your node.</h1>
+                <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+            </div>
+          </div>
+        </section>
+
+        <section >
+          <div class="container">
+            <div class="title">
+                <h1>HHERO 3.</h1>
+                <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
+                <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
+                <h1>Own your node.</h1>
+                <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+            </div>
+          </div>
+        </section>
+      </Slider>
+    </div>
+
   );
 }
 

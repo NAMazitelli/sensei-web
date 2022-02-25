@@ -31,6 +31,7 @@ const Styles = css`
   .service-box {
     width: 30%;
     border-top: 3px solid #34C55D;
+    margin-top: 20px;
     margin-right: 20px;
     p {
       color: #BABABA;
