@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+
 import { css } from '@emotion/react';
 import media from '../../styles/media';
 import ExchangesIcon from '../icons/exchanges';
@@ -37,6 +39,7 @@ const Styles = css`
       color: #BABABA;
       font-size: 1.2rem;
       line-height: 1.8rem;
+      transition: all 1s;
     }
     h3 {
       font-size: 2.5rem; 
@@ -76,6 +79,11 @@ const Styles = css`
       flex-direction: column;
       .service-box {
         width: 100%;
+        &.open {
+          p {
+            max-height:2000px; 
+          }
+        }
         .title-container {
           flex-direction: row-reverse;
           .title-icon {
@@ -130,7 +138,14 @@ const services = [
 ];
 
 const Service = ({title, subtitle, icon, text}) => {
-  return title ? (<div class="service-box">
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = (e) => { setIsOpen(!isOpen); }
+  let className= `service-box ${isOpen ? 'open' : ''}`;
+  useEffect(() => {
+    className =  `service-box ${isOpen ? 'open' : ''}`;
+  }, [isOpen])
+  return title ? (
+    <div onClick={handleOpen} class={className}>
       <div class="title-container">
         <h3>
           {title}

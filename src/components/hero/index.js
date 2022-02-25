@@ -9,6 +9,10 @@ const Styles = css`
   height: calc(100vh - 100px);
   position: relative;
   z-index: 4;
+  section {
+    height:calc(100vh - 100px);
+  }
+  .slick-slider {height: 100%;}
   h1 {
     font-size: 4rem;
     text-align: center;
@@ -29,6 +33,8 @@ const Styles = css`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    height:100%;
   }
 
   .hero-image {
@@ -97,8 +103,10 @@ const Hero = () => {
                 <h1>The Revolution will be Decentralized.</h1>
                 <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
                 <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
-                <h1>Own your node.</h1>
-                <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+                <div>
+                  <h1>Own your node.</h1>
+                  <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+                </div>
             </div>
           </div>
         </section>

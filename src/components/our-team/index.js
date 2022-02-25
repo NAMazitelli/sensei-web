@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+
 import { css } from '@emotion/react';
 import media from '../../styles/media';
 
@@ -92,9 +94,13 @@ const Styles = css`
     .members-container {
       .member-container {
         width: 100%;
+        transition: all 1s;
         max-height: 85px;
         overflow: hidden;
         margin-top: 30px;
+        &.open {
+          max-height: 2000px;
+        }
       }
     }
   }
@@ -169,8 +175,10 @@ const teamMembers = [
 ];
 
 const MemberBox = ({name, title, subtitle, picture, linkedin, description}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = (e) => { setIsOpen(!isOpen); }
   return(
-  <div class="member-container">
+  <div onClick={handleOpen} class={`member-container ${isOpen ? 'open' : ''}`}>
     <h3>{name}</h3>
     <span className="title">{title}</span>
     <span className="subtitle">{subtitle}</span>

@@ -44,7 +44,7 @@ const Styles = css`
   .rounded-box {
     margin-top: -60px;
     margin-bottom: -300px;
-    margin-left: 120px;
+    margin-left: 350px;
     display: flex;
     align-items: stretch;
     width: 750px;
