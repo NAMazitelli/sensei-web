@@ -38,7 +38,9 @@ const Styles = css`
   .hero-image-mobile {
     display:none;
   }
-
+  .slick-arrow {
+    display: none!important;
+  }
   ${media.medium} {
     padding-top: 0;
     height: calc(100vh);
@@ -77,10 +79,6 @@ const Styles = css`
   }
 `;
 
-const StylesContainer = css`
-
-
-`;
 const Hero = () => {
   const settings = {
     dots: false,
