@@ -37,7 +37,7 @@ const Header = () => {
           text-align: center;
           width: 100%;
           display: inline;
-          padding: 10px 10px;
+          padding: 5px 10px;
           font-size: 16px;
           background: #C4C4C4;
           color: #000;

@@ -9,6 +9,16 @@ const Styles = css`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    &:after{
+      content: '';
+      width:100%;
+      position:absolute;
+      height:800px;
+      z-index: 1;
+      background:#F6F6F6;
+      border-radius:35px;
+      bottom: -280px;
+    }
   }
   p {
     margin-top: 20px;
@@ -21,17 +31,26 @@ const Styles = css`
     padding: 5px 20px;
     font-size: 2rem;
     border: 1px solid #000;
+    margin-bottom: 60px;
   }
   
   .members-container {
+    z-index:3;
     padding-top: 40px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    :after {
+      content: '';
+      width: 30%;
+    }
+
     .member-container {
       width: 28%;
-      margin-right: 50px;
+      position:relative;
       h3 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 100;
         text-transform: uppercase;
         color: #000;
@@ -50,16 +69,23 @@ const Styles = css`
         border-radius: 0 0 30px 30px;
       }
       ul {
-        padding: 20px;
+        padding:50px 10px 100px;
       }
       li {
         font-size: 1.5rem;
         line-height: 2rem;
         list-style: initial ;
         margin-left: 15px;
-
       }
     }
+  }
+
+  .linkedin-link {
+    width: 55px;
+    height:55px;
+    position:absolute;
+    right: 10px;
+    top: 75px;
   }
 
   ${media.medium} {
@@ -82,19 +108,14 @@ const Styles = css`
     }
   }
 `;
-/*
-https://i1.lensdump.com/i/rnjgXb.png
-https://i2.lensdump.com/i/rnjtr7.png
-https://i3.lensdump.com/i/rnj14r.png
-https://i.lensdump.com/i/rnjRNF.png
-https://i1.lensdump.com/i/rnjEi3.png
-*/
+
 const teamMembers = [
   {
     name: "Rodrigo Benzaquen",
     title: "President",
     subtitle: "Presidente",
     picture: "https://i1.lensdump.com/i/rnjEi3.png",
+    linkedin: "https://www.linkedin.com/in/rbenzaquen/",
     description: [
       "MercadoLibre's first employee, managing infrastructure for 15 years.",
       "Founder of NubeliU, a private cloud company, that was sold to Logicalis in 2017",
@@ -106,6 +127,7 @@ const teamMembers = [
     title: "CEO",
     subtitle: "Chief Executive Officer",
     picture: "https://i.lensdump.com/i/rnjRNF.png",
+    linkedin: "https://www.linkedin.com/in/pablolarguia/",
     description: [
       "Founder of Bumeran",
       "Founder of Red Innova",
@@ -118,7 +140,8 @@ const teamMembers = [
     name: "Martin Fernandez",
     title: "CTO",
     subtitle: "Chief Technology Officer",
-    picture: "https://i1.lensdump.com/i/rnjEi3.png",
+    picture: "https://i2.lensdump.com/i/rnjtr7.png",
+    linkedin: "https://www.linkedin.com/in/martinfernandez666/",
     description: [
       "Bitcoin early adopter (2011)",
       "Expert in PoW mining and POS protocols",
@@ -131,7 +154,8 @@ const teamMembers = [
     name: "Nacho Roizman",
     title: "COO",
     subtitle: "Chief Operating Officer",
-    picture: "https://i1.lensdump.com/i/rnjEi3.png",
+    picture: "https://i3.lensdump.com/i/rnj14r.png",
+    linkedin: "https://www.linkedin.com/in/iroizman/",
     description: [
       "+20 years leading multi-country operations in Latin America.",
       "Founder of USMC, Communitana & Jumba Media Group.",
@@ -143,7 +167,8 @@ const teamMembers = [
     name: "Jesus Chitty",
     title: "CEO",
     subtitle: "Chief Arquitect",
-    picture: "https://i1.lensdump.com/i/rnjEi3.png",
+    picture: "https://i1.lensdump.com/i/rnjgXb.png",
+    linkedin: "https://www.linkedin.com/in/jesuschitty/",
     description: [
       "Co-Founder of EOS Argentina.",
       "Current miner and node validator on over 20 different Blockchains.",
@@ -152,15 +177,18 @@ const teamMembers = [
   }
 ];
 
-const MemberBox = ({name, title, subtitle, picture, description}) => {
+const MemberBox = ({name, title, subtitle, picture, linkedin, description}) => {
   return(
   <div class="member-container">
     <h3>{name}</h3>
     <span className="title">{title}</span>
     <span className="subtitle">{subtitle}</span>
+    <a class="linkedin-link" href={linkedin} target="_blank">
+      <img src="https://i.lensdump.com/i/rnjwq3.png" />
+    </a>
     <img src={picture} />
     <ul>
-      {description && description.map( (e) => <li>{e}</li>) }
+      { description && description.map( (e) => <li>{e}</li>) }
     </ul>
   </div>
   );

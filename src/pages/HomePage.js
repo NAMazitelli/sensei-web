@@ -9,6 +9,7 @@ import OnboardingProcess from '../components/onboarding-process';
 import ServicesList from '../components/services-list';
 import ProtocolsSupported from '../components/protocols-supported';
 import OurTeam from '../components/our-team'
+import News from '../components/news'
 
 const HomePage = () => {
   return (
@@ -38,7 +39,8 @@ const HomePage = () => {
         <OurTeam />
       </StyledSection>
 
-      <StyledSection color={"green"} >
+      <StyledSection styles={{"z-index": 3}} color={"green"} >
+        <News />
       </StyledSection>
     </>
   );
