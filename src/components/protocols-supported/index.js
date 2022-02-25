@@ -45,14 +45,28 @@ const Styles = css`
       justify-content: center;
       align-items: center;
       padding: 20px 0;
+      img {
+        max-width: 100%;
+      }
     }
   }
 
   ${media.medium} {
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      text-align: center;
+    .container {
+      flex-direction: column;
+      padding:40px;
+      h2 {
+        padding:0;
+        width:100%;
+      }
+    }
+    .logos-container {
+      width:100%;
+      justify-items: space-between;
+      .logo {
+        width: 47%;
+
+      }
     }
   }
 `;

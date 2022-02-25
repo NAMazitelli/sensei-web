@@ -70,10 +70,25 @@ const Styles = css`
     margin-right: 20px;
   }
   ${media.medium} {
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      text-align: center;
+    padding: 40px;
+    .services-list {
+      flex-direction: column;
+      .service-box {
+        width: 100%;
+        .title-container {
+          flex-direction: row-reverse;
+          .title-icon {
+            margin-right: 10px;
+          }
+        }
+        p {
+          max-height:0;
+          overflow: hidden;
+        }
+      }
+    }
+    .blank {
+      display:none;
     }
   }
 `;

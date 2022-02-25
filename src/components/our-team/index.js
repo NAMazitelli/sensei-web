@@ -89,22 +89,13 @@ const Styles = css`
   }
 
   ${media.medium} {
-    height: 300px;
-    .background {
-      width: 80%;
-      height: 200px;
-      margin: auto;
-    }
-
-    .title {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      text-align: center;
+    .members-container {
+      .member-container {
+        width: 100%;
+        max-height: 85px;
+        overflow: hidden;
+        margin-top: 30px;
+      }
     }
   }
 `;

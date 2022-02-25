@@ -78,10 +78,32 @@ const Styles = css`
   }
 
   ${media.medium} {
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      text-align: center;
+    .rounded-box {
+      width:100%;
+      flex-direction: column;
+      margin: 10px;
+      margin-top: 100px;
+      .green-container {
+        border-radius: 15px;
+        padding: 120px 50px;
+        font-size: 1.5rem;
+        margin-top: -15px;
+        line-height: 2.3rem;
+      }
+
+    }
+    .image-container {
+      top:230px;
+      width:100%; 
+      bottom:unset;
+      padding: 10px;
+      .mid-circles {
+        width: 70%;
+        margin-left: -30px;
+      }
+      .btm-lines {
+        width:40%;
+      }
     }
   }
 `;

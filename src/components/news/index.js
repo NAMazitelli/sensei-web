@@ -200,23 +200,14 @@ const News = () => {
     }
 
     ${media.medium} {
-      height: 300px;
-      .background {
-        width: 80%;
-        height: 200px;
-        margin: auto;
+      .container {padding:20px;}
+      .slider-container {
+        padding-left: 20px;
+        .new-container {
+          max-width: 80vw;
+        }
       }
-
-      .title {
-        width: 100%;
-        overflow: hidden;
-      }
-
-      h1 {
-        font-size: 3rem;
-        width: 100%;
-        text-align: center;
-      }
+      h2 { font-size: 3rem; line-height: 3.5rem; padding-right: 20px;}
     }
   `;
   

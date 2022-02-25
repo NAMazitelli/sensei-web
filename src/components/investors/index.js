@@ -74,10 +74,21 @@ const Styles = css`
     bottom: -150px;
   }
   ${media.medium} {
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      text-align: center;
+    h2 {
+      width: 80%;
+      font-size: 2rem;
+    }
+    .green-pill {
+      font-size: 1.8rem;
+    }
+    .logos-container {
+      padding-bottom: 30px;
+      .logo {
+        width: 100%;
+      }
+    }
+    .icon {
+      width: 50%;
     }
   }
 `;

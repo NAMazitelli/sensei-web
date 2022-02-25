@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import media from '../styles/media';
 
 const footerStyle = css`
   padding: 20px;
@@ -29,6 +30,16 @@ const footerStyle = css`
           margin-right:60px;
           text-decoration: underline;
         }
+      }
+    }
+  }
+  ${media.medium} {
+    nav {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .sensei-logo-container {
+        margin-bottom: 40px;
       }
     }
   }

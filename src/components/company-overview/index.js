@@ -40,23 +40,25 @@ const Styles = css`
   }
 
   ${media.medium} {
-    height: 300px;
-    .background {
-      width: 80%;
-      height: 200px;
-      margin: auto;
+    .tag {
+      font-size: 1.4rem;
+      padding: 10px 20px;  
     }
-
-    .title {
-      width: 100%;
-      overflow: hidden;
+    .content-left {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      padding-right: 40px;
     }
-
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      text-align: center;
+    .gray-background-round {
+      margin:-100px 20px;
+      padding:100px 10px;
+      border-radius: 0;
+      &:after{
+        content: none;
+        width: 100%;
+      }
     }
+  
   }
 `;
 
