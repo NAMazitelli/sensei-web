@@ -83,8 +83,10 @@ const Styles = css`
       flex-direction: column;
       margin: 10px;
       margin-top: 100px;
+      margin-bottom: 0;
+      border-radius: 15px 15px 0 0;
       .green-container {
-        border-radius: 15px;
+        border-radius: 15px 15px 0 0;
         padding: 120px 50px;
         font-size: 1.5rem;
         margin-top: -15px;

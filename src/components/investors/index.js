@@ -9,7 +9,7 @@ const Styles = css`
 
   .green-pill {
     background: #34C55D;
-    padding: 3px 20px;
+    padding: 5px 20px;
     border-radius: 30px;
     font-weight:100;
     color: #fff;
@@ -78,13 +78,24 @@ const Styles = css`
       width: 80%;
       font-size: 2rem;
     }
+    h3 {
+      font-weight:400;
+      font-size:1.8rem;
+    }
     .green-pill {
       font-size: 1.8rem;
+      font-weight: 400;
+    }
+    .container-rounded {
+      background: transparent;
     }
     .logos-container {
       padding-bottom: 30px;
       .logo {
         width: 100%;
+        a {
+          font-size: 1.5rem;
+        }
       }
     }
     .icon {

@@ -103,6 +103,12 @@ const Styles = css`
         }
       }
     }
+
+    .container {
+      &:after{
+        content: none;
+      }
+    }
   }
 `;
 

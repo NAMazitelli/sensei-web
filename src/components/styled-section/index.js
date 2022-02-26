@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import media from '../../styles/media';
 
-const StyledSection = ({ children, color, styles={}}) => {
+const StyledSection = ({ children, color, styles={}, classNames=""}) => {
   const themes = [];
 
   themes['gray'] = {
@@ -34,7 +34,7 @@ const StyledSection = ({ children, color, styles={}}) => {
     background: ${themes[color].main};
     position:relative;
     padding: 100px 0 150px;
-
+    
     h2 {
       font-size: 3rem;
       font-weight: 600;
@@ -57,6 +57,16 @@ const StyledSection = ({ children, color, styles={}}) => {
         font-size: 1.6em;
         text-align: center;
       }
+      &.hidden-mobile {
+        display: none;
+      }
+      &.nopadding-bot-mobile {
+        padding-bottom: 0;
+      }
+      &.nopadding-bot-top-mobile {
+        padding-top:0;
+        padding-bottom:0;
+      }
 
       h3 {
         font-size: 1.4rem;
@@ -67,7 +77,7 @@ const StyledSection = ({ children, color, styles={}}) => {
   `;
 
   return (
-    <section css={[Style]}>
+    <section className={classNames} css={[Style]}>
       {children}
     </section>
   );

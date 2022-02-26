@@ -80,14 +80,34 @@ const Styles = css`
       .service-box {
         width: 100%;
         &.open {
+          .title-container:before {
+            transform: rotate(225deg) translateY(-10px) translateX(-10px);
+          }
           p {
             max-height:2000px; 
           }
         }
         .title-container {
+          position: relative;
           flex-direction: row-reverse;
+          h3 {
+            font-size: 2rem;
+          }
           .title-icon {
             margin-right: 10px;
+          }
+          &:before {
+            content: '';
+            min-width:15px;
+            min-height: 15px;
+            width:15px;
+            height: 15px;
+            transform: rotate(45deg);
+            border-bottom: 2px solid #fff;
+            transition: all 0.4s; 
+            border-right: 2px solid #fff;
+            position:absolute;
+            top: 25px;
           }
         }
         p {

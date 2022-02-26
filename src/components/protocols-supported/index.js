@@ -27,6 +27,8 @@ const Styles = css`
     display:block;
     padding-right: 80px;
     margin-bottom: 30px;
+    font-size: 4rem;
+    line-height: 4.6rem;
   }
 
   .logos-container {
@@ -61,6 +63,7 @@ const Styles = css`
       }
     }
     .logos-container {
+      margin-top: 100px;
       width:100%;
       justify-items: space-between;
       .logo {

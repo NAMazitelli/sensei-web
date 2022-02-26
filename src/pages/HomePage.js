@@ -16,18 +16,18 @@ const HomePage = () => {
     <>
       <Hero />
 
-      <StyledSection color={"gray"} >
+      <StyledSection classNames="nopadding-bot-mobile" color={"gray"} >
         <CompanyOverview />
         <OnboardingProcess />
       </StyledSection>
 
-      <StyledSection color={"white"} >
+      <StyledSection classNames="hidden-mobile" color={"white"} >
       </StyledSection>
 
       <StyledSection color={"black"} >
         <ServicesList />
       </StyledSection>
-      <StyledSection color={"white"} >
+      <StyledSection classNames="nopadding-bot-top-mobile"  color={"white"} >
         <ProtocolsSupported />
       </StyledSection>
 
