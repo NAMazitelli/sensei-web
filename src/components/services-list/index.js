@@ -180,7 +180,7 @@ const Service = ({title, subtitle, icon, text}) => {
 
 const ServicesList = () => {
   return (
-    <div css={[Styles]}>
+    <div id="services" css={[Styles]}>
       <div class="container">
         <h2>
           <span className="highlight">Sensei Node</span> is for

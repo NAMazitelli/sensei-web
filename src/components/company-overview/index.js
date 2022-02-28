@@ -64,7 +64,7 @@ const Styles = css`
 
 const CompanyOverview = () => {
   return (
-    <div css={[Styles]}>
+    <div id="about-us" css={[Styles]}>
       <div class="container">
         <div class="gray-background-round">
           <div class="content-left">

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
 
 import media from '../styles/media';
 import { palette } from '../styles/palette';
 import { useThemeContext } from '../contexts/ThemeContext';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -73,22 +74,20 @@ const Header = () => {
         <nav class="menu">
           <ul>
             <li>
-              <Link to="/about-us">
-                About
-              </Link>
+              <Link to="/#about-us">About</Link>
             </li>
             <li>
-              <Link to="/services">
+              <Link to="/#services">
                 Services
               </Link>
             </li>
             <li>
-              <Link to="/contact">
+              <Link to="/#team">
                 Team
               </Link>
             </li>
             <li>
-              <Link to="/contact">
+              <Link to="/#news">
                 News
               </Link>
             </li>

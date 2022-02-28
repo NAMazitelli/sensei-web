@@ -239,7 +239,7 @@ const News = () => {
   }
 
   return (
-    <div css={[Styles]}>
+    <div id="news" css={[Styles]}>
       <div class="container">
         <span class="tag">
           In the News

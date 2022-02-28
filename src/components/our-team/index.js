@@ -201,7 +201,7 @@ const MemberBox = ({name, title, subtitle, picture, linkedin, description}) => {
 
 const OurTeam = () => {
   return (
-    <div css={[Styles]}>
+    <div id="team" css={[Styles]}>
       <div class="container">
         <span class="tag">
           Our Team
