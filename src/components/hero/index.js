@@ -6,11 +6,11 @@ const Styles = css`
   background: #0C0C0C;
   z-index: 2;
   position: relative;
-  height: calc(100vh - 100px);
+  height:  100vh;
   position: relative;
   z-index: 4;
   section {
-    height:calc(100vh - 100px);
+    height: 100vh;
   }
   .slick-slider {height: 100%;}
   h1 {
@@ -35,6 +35,7 @@ const Styles = css`
     align-items: center;
     justify-content: space-evenly;
     height:100%;
+    width:100%;
   }
 
   .hero-image {
@@ -47,15 +48,51 @@ const Styles = css`
   .slick-arrow {
     display: none!important;
   }
+  .hero-3 {
+    background: url('https://i3.lensdump.com/i/rvh3L5.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    h1 {
+      margin-top:50px;
+      margin-bottom:20px;
+    }
+  }
+  .hero-2 {
+    background: url('https://i.lensdump.com/i/rvh4az.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .float-left {
+    align-self:flex-start;
+    text-align:left;
+    max-width: 600px;
+    margin-bottom: 200px;
+    margin-top: 0;
+  }
+
+  .float-right {
+    float:right;
+    text-align:right;
+    align-self:flex-end;
+  }
+
   ${media.medium} {
     padding-top: 0;
     height: calc(100vh);
-    padding:40px;
 
     .background {
       width: 80%;
       height: 200px;
       margin: auto;
+    }
+    br {display:none;}
+    .hero-2, .hero-3, .hero-1 {
+      padding-left: 40px!important;
+      padding-right: 40px!important;
     }
 
     .title {
@@ -97,12 +134,12 @@ const Hero = () => {
   return (
     <div css={[Styles]}>
       <Slider {...settings}>
-        <section >
-          <div class="container">
-            <div class="title">
+        <section  className="hero-1"  >
+          <div  className="container">
+            <div  className="title">
                 <h1>The Revolution will be Decentralized.</h1>
-                <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
-                <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
+                <img  className="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
+                <img  className="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
                 <div>
                   <h1>Own your node.</h1>
                   <h2>Accesible and reliable one-click private nodes for everybody.</h2>
@@ -112,25 +149,21 @@ const Hero = () => {
         </section>
 
         <section className="hero-2" >
-          <div class="container">
-            <div class="title">
-                <h1>HERO 2</h1>
-                <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
-                <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
-                <h1>Own your node.</h1>
-                <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+          <div  className="container">
+            <div  className="title">
+                <h1 className="float-left">Enterprise level <br/>Blockchain infrastructure</h1>
+                <h1 className="float-right">Made simple.</h1>
             </div>
           </div>
         </section>
 
-        <section >
-          <div class="container">
-            <div class="title">
-                <h1>HHERO 3.</h1>
-                <img class="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
-                <img class="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
-                <h1>Own your node.</h1>
-                <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+        <section className="hero-3" >
+          <div className="container">
+            <div className="title">
+              <div>
+                <h1>We are building the backbone for a <br/>decentralized Blockchain in Latin America.</h1>
+                <h2>Distributed across multiple leading local hosting providers all over the region.</h2>
+              </div>
             </div>
           </div>
         </section>

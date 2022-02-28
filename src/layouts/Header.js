@@ -14,16 +14,26 @@ const Header = () => {
  
   const headerStyle = (isLight) => css`
     height: 100px;
-    background-color: #0C0C0C;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
     .menu-container a {
       color: #ffc515;
       padding: 10px 15px;
     }
-
+    .logo-container {
+      max-width: 420px;
+      img {
+        max-width:100%;
+      }
+    }
     .menu {
       width: 400px;
       ul {
@@ -67,7 +77,7 @@ const Header = () => {
       <div class="container">
         <div class="logo-container">
           <Link to="/" replace={pathname === '/'}>
-            <img src={'https://i2.lensdump.com/i/refRDk.png'} />
+            <img src={'https://i.lensdump.com/i/rvhltr.png'} />
           </Link>
         </div>
 
