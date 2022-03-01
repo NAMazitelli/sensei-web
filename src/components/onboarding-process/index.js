@@ -105,6 +105,8 @@ const Styles = css`
       }
       .btm-lines {
         width:40%;
+        max-height: 33px;
+        height:33px;
       }
     }
   }
