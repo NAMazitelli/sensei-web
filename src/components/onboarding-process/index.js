@@ -72,6 +72,7 @@ const Styles = css`
     display:flex; 
     flex-direction: row;
     align-items: end;
+    -webkit-align-items: flex-end;
     width: 750px;
     position: absolute;
     bottom:0;
