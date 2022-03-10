@@ -12,6 +12,16 @@ const Styles = css`
   z-index: 3;
   position: relative;
 
+  .contact-button {
+    background: #34C55D;
+    border-radius: 35px;
+    padding:5px 40px;
+    font-size: 1.6rem;
+    align-self: flex-end;
+    margin: 0 auto;
+    color: #fff;
+  }
+
   h2 {
     font-size: 2.5rem;
     line-height: 3.3rem;
@@ -72,6 +82,7 @@ const Styles = css`
   .blank {
     width: 30%;
     margin-right: 20px;
+    display:flex;
   }
   ${media.medium} {
     padding: 40px;
@@ -138,8 +149,14 @@ const services = [
       on rewards earned by your validator nodes compared to staking on Exchanges, 
       with no slashing and guaranteed uptime across all networks.`,
   },
-  {},
-  {},
+  {
+  },
+  {
+    button: {
+      link: 'https://us5.list-manage.com/contact-form?u=9a345a8d92f88e03240efcfb6&form_id=d832bc00fc84c97d62fa9aa05161379d ',
+      button_text: 'Contact Us'
+    }
+  },
   {
     title: "Blockchain Protocol Foundations",
     icon: <BlockchainIcon />,
@@ -157,13 +174,17 @@ const services = [
   },
 ];
 
-const Service = ({title, subtitle, icon, text}) => {
+const Service = ({title, subtitle, icon, text, button = {}}) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = (e) => { setIsOpen(!isOpen); }
-  let className= `service-box ${isOpen ? 'open' : ''}`;
+  const { button_text, link } = button;
+  let className = `service-box ${isOpen ? 'open' : ''}`;
+
   useEffect(() => {
     className =  `service-box ${isOpen ? 'open' : ''}`;
-  }, [isOpen])
+  }, [isOpen]);
+
+  
   return title ? (
     <div onClick={handleOpen} class={className}>
       <div class="title-container">
@@ -176,7 +197,10 @@ const Service = ({title, subtitle, icon, text}) => {
         </div>
       </div>
       <p>{text}</p>
-    </div>) : (<div className="blank"></div>) };
+    </div> ) : ( button_text ? ( <div className="blank"><a className="contact-button" target="_blank" href={link}>{button_text}</a></div>) :
+        (<div className="blank"></div>)
+      ) 
+};
 
 const ServicesList = () => {
   return (

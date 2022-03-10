@@ -50,7 +50,7 @@ const Styles = css`
   }
   .hero-3 {
     background: url('https://i3.lensdump.com/i/rvh3L5.jpg');
-    background-size: cover;
+    background-size: 130%;
     background-repeat: no-repeat;
     background-position: center;
     
@@ -83,7 +83,10 @@ const Styles = css`
   ${media.medium} {
     padding-top: 0;
     height: calc(100vh);
-
+    .hero-3 {
+      background-size: cover;
+    }
+    
     .background {
       width: 80%;
       height: 200px;
@@ -124,7 +127,7 @@ const Styles = css`
 
 const Hero = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 600,
     autoplay: true,
@@ -136,16 +139,13 @@ const Hero = () => {
   return (
     <div css={[Styles]}>
       <Slider {...settings}>
-        <section  className="hero-1"  >
-          <div  className="container">
-            <div  className="title">
-                <h1>The Revolution will be Decentralized.</h1>
-                <img  className="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
-                <img  className="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
-                <div>
-                  <h1>Own your node.</h1>
-                  <h2>Accesible and reliable one-click private nodes for everybody.</h2>
-                </div>
+        <section className="hero-3" >
+          <div className="container">
+            <div className="title">
+              <div>
+                <h1>We are building the backbone for a <br/>decentralized Blockchain in Latin America.</h1>
+                <h2>Distributed across multiple leading local hosting providers all over the region.</h2>
+              </div>
             </div>
           </div>
         </section>
@@ -159,13 +159,16 @@ const Hero = () => {
           </div>
         </section>
 
-        <section className="hero-3" >
-          <div className="container">
-            <div className="title">
-              <div>
-                <h1>We are building the backbone for a <br/>decentralized Blockchain in Latin America.</h1>
-                <h2>Distributed across multiple leading local hosting providers all over the region.</h2>
-              </div>
+        <section  className="hero-1"  >
+          <div  className="container">
+            <div  className="title">
+                <h1>The Revolution will be Decentralized.</h1>
+                <img  className="hero-image" src="https://i1.lensdump.com/i/ref1se.png" />
+                <img  className="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
+                <div>
+                  <h1>Own your node.</h1>
+                  <h2>Accesible and reliable one-click private nodes for everybody.</h2>
+                </div>
             </div>
           </div>
         </section>

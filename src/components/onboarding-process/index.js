@@ -71,7 +71,7 @@ const Styles = css`
     padding:30px;
     display:flex; 
     flex-direction: row;
-    align-items: end;
+    align-items: end; 
     -webkit-align-items: flex-end;
     width: 750px;
     position: absolute;
@@ -81,11 +81,12 @@ const Styles = css`
   ${media.medium} {
     .rounded-box {
       width:100%;
+      max-width: 400px;
       flex-direction: column;
       margin: 10px;
       margin-top: 100px;
-      margin-bottom: 0;
-      border-radius: 15px 15px 0 0;
+      margin-bottom: 30px;
+      border-radius: 15px;
       .green-container {
         border-radius: 15px 15px 0 0;
         padding: 120px 50px;

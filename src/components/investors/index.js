@@ -64,6 +64,10 @@ const Styles = css`
       }
       a {
         font-size: 1.3rem;
+        display:flex;
+        img {
+          margin:auto;
+        }
       }
     }
   }
@@ -120,22 +124,34 @@ const Investors = () => {
           <h3>Institutionals</h3>
           <div class="logos-container">
             <div class="logo">
-              <img alt="borderless"  src="https://i.lensdump.com/i/rea9mc.png" />
+                <a target="_blank" href="https://www.borderlesscapital.io/">
+                 <img alt="borderless"  src="https://i.lensdump.com/i/rea9mc.png" />
+                </a>
             </div>
             <div class="logo">
-              <img alt="newtopia"  src="https://i.lensdump.com/i/rea6Tk.png" />
+                <a target="_blank" href="https://newtopia.vc/">
+                 <img alt="newtopia"  src="https://i.lensdump.com/i/rea6Tk.png" />
+                </a>
             </div>
             <div class="logo">
-              <img alt="sur"  src="https://i3.lensdump.com/i/reaVZ1.png" />
+                <a target="_blank" href="https://sur.vc/">
+                 <img alt="sur"  src="https://i3.lensdump.com/i/reaVZ1.png" />
+                </a>
             </div>
             <div class="logo">
-              <img alt="spice" src="https://i1.lensdump.com/i/reaC7x.png" />
+                <a target="_blank" href="https://spicevc.com/">
+                 <img alt="spice" src="https://i1.lensdump.com/i/reaC7x.png" />
+                </a>
             </div>
             <div class="logo">
-              <img alt="dg" src="https://i2.lensdump.com/i/reaJUH.png" />
+                <a target="_blank" href="https://www.11-11dg.partners/">
+                 <img alt="dg" src="https://i2.lensdump.com/i/reaJUH.png" />
+                </a>
             </div>
             <div class="logo">
-              <img alt="xeibo" src="https://i3.lensdump.com/i/reaEye.png" />
+                <a target="_blank" href="https://xeibocapital.com/">
+                 <img alt="xeibo" src="https://i3.lensdump.com/i/reaEye.png" />
+                </a>
             </div>
           </div>
 

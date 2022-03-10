@@ -3,80 +3,78 @@ import { useState, createRef, useEffect } from 'react';
 import { css } from '@emotion/react';
 import media from '../../styles/media';
 import NewsIcon from '../icons/news';
+/*
+  {
+    title: "Upcoming Tech Devs in Latam",
+    date: "12.3.22",
+    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
+    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
+    link: "techinsider.com",
+  },
+  {
+    title: "Upcoming Tech Devs in Latam",
+    date: "12.3.22",
+    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
+    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
+    link: "techinsider.com",
+  },
+  {
+    title: "Upcoming Tech Devs in Latam",
+    date: "12.3.22",
+    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
+    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
+    link: "techinsider.com",
+  },
+  {
+    title: "Upcoming Tech Devs in Latam",
+    date: "12.3.22",
+    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
+    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
+    link: "techinsider.com",
+  },*/
 
 const news = [
+
   {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
+    title: "SenseiNode Releases a dockerfile for Algorand nodes",
+    date: "8.3.22",
+    description: "Last week we released a Public Node on Algorand  for community development. Along with it we also made public a dockerfile to make it simple for anyone to host their own node. You can find here.",
+    picture: "https://i.lensdump.com/i/rPHAse.png",
+    link: "https://twitter.com/SenseiNode/status/1490717931939979267?s=20&t=ntC06_86ERaJQ9YuuVyRlQ",
+    font: 'Twitter'
   },
   {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
+    title: "SenseiNode launches a free public node on Algorand",
+    date: "9.3.22",
+    description: "A public Algorand Node for community development. Hosted by Sensei Node Inc. To obtain access complete the following form",
+    picture: "https://i1.lensdump.com/i/rPHWDk.png",
+    link: "https://algorand.senseinode.com/",
+    font: 'SenseiNode',
   },
   {
-    title: "Upcoming Tech Devs in Latam",
+    title: "The World of NFTs",
     date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
+    description: "An Infobae special report on NFTs quoting our CTO Martin Fernandez",
+    picture: "https://i2.lensdump.com/i/rnjtr7.png",
+    link: "https://www.infobae.com/america/tecno/2021/12/07/el-mundo-de-los-nfts-la-tecnologia-que-transforma-industrias-como-el-arte-y-los-videojuegos-pero-con-riesgos/",
+    font: 'Infobae Americas',
+  }
 ];
 
-const NewBox = ({title, date, description, picture, link}) => {
+const NewBox = ({title, date, description, picture, link, font}) => {
   return(
-  <div class="new-container">
+  <a class="new-container" target="_blank" href={link}>
     <h3>{title}</h3>
     <span className="date">{date}</span>
     <p className="title">{description}</p>
-    <img src={picture} />
+    <div class="new-img" style={{backgroundImage: `url(${picture})`}}></div>
     <div className="link-icon">
-      <a target="_blank" href={link} >
+      <a >
         <NewsIcon />
-        <span>{link}</span>
+        <span>{font}</span>
       </a>
     </div>
-  </div>
+  </a>
   );
 }
 
@@ -156,6 +154,7 @@ const News = () => {
           font-size: 1.3rem;
           line-height: 2rem;
           font-weight:100;
+          margin-bottom: 160px;
         }
 
         h3 {
@@ -189,13 +188,20 @@ const News = () => {
           width: 100%;
           display: block;
         }
-        img {
+        .new-img {
           margin-top: 30px;
-          border-radius: 0 0 30px 30px;
+          border-radius: 30px;
           float:right;
           margin-bottom:40px;
+          width: 125px;
+          height: 125px;
+          position:absolute;
+          bottom:20px;
+          right:30px;
+          background-size:cover;
+          background-repeat:no-repeat;
+          background-position:center;
         }
-
       }
     }
 
