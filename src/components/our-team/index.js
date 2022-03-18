@@ -169,7 +169,7 @@ const teamMembers = [
   {
     name: "Jesus Chitty",
     title: "CAO",
-    subtitle: "Chief Arquitect",
+    subtitle: "Chief Arquitect Officer",
     picture: "https://i1.lensdump.com/i/rnjgXb.png",
     linkedin: "https://www.linkedin.com/in/jesuschitty/",
     description: [
@@ -184,18 +184,18 @@ const MemberBox = ({name, title, subtitle, picture, linkedin, description}) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = (e) => { setIsOpen(!isOpen); }
   return(
-  <div onClick={handleOpen} class={`member-container ${isOpen ? 'open' : ''}`}>
-    <h3>{name}</h3>
-    <span className="title">{title}</span>
-    <span className="subtitle">{subtitle}</span>
-    <a class="linkedin-link" href={linkedin} target="_blank">
-      <img src="https://i.lensdump.com/i/rnjwq3.png" />
-    </a>
-    <img src={picture} />
-    <ul>
-      { description && description.map( (e) => <li>{e}</li>) }
-    </ul>
-  </div>
+    <div onClick={handleOpen} class={`member-container ${isOpen ? 'open' : ''}`}>
+      <h3>{name}</h3>
+      <span className="title">{title}</span>
+      <span className="subtitle">{subtitle}</span>
+      <a class="linkedin-link" href={linkedin} target="_blank">
+        <img src="https://i.lensdump.com/i/rnjwq3.png" />
+      </a>
+      <img src={picture} />
+      <ul>
+        { description && description.map( (e) => <li>{e}</li>) }
+      </ul>
+    </div>
   );
 }
 

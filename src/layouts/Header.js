@@ -64,7 +64,7 @@ const Header = () => {
       height: 70px;
       z-index: 6;
       .logo-container {
-        max-width:80vw;
+        max-width:75vw;
         img {
           max-width:100%;
         }

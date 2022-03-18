@@ -1,10 +1,16 @@
 import React, { useRef, useState } from 'react';
 import { css } from '@emotion/react';
+import { isMobile } from 'react-device-detect';
+
 import media from '../../styles/media';
 import Slider from 'react-slick';
 import video1 from '../../../public/hero-01.mp4'
 import video2 from '../../../public/hero-02.mp4'
 import video3 from '../../../public/hero-03.mp4'
+
+import videoMobile1 from '../../../public/hero-1-mobile.mp4'
+import videoMobile2 from '../../../public/hero-2-mobile.mp4'
+import videoMobile3 from '../../../public/hero-3-mobile.mp4'
 
 const Styles = css`
   background: #0C0C0C;
@@ -101,6 +107,14 @@ const Styles = css`
     }
   }
   ${media.medium} {
+    .hero-slide {
+      padding-left: 0;
+      padding-right: 0;
+      video {
+        width:100vw
+      }
+    }
+
     padding-top: 0;
     height: calc(100vh);
     .hero-3 {
@@ -112,15 +126,13 @@ const Styles = css`
       height: 200px;
       margin: auto;
     }
+
     br {display:none;}
-    .hero-2, .hero-3, .hero-1 {
-      padding-left: 40px!important;
-      padding-right: 40px!important;
-    }
 
     .title {
       width: 100%;
       overflow: hidden;
+      padding: 0 40px;
     }
 
     .hero-image-mobile {
@@ -165,7 +177,7 @@ const Hero = () => {
       <Slider {...settings}>
         <section className="hero-slide hero-3" >
           <video playsInline autoPlay muted loop>
-            <source src={video1} type="video/mp4" />
+            <source src={isMobile ? videoMobile1 : video1} type="video/mp4" />
           </video>
           <div className="container">
             <div className="title">
@@ -179,7 +191,7 @@ const Hero = () => {
 
         <section className="hero-slide hero-2" >
           { replayVideo === 1 && (<video playsInline autoPlay muted>
-            <source src={video2} />
+            <source src={isMobile ? videoMobile2 : video2} />
           </video>) }
 
           <div  className="container">
@@ -192,12 +204,11 @@ const Hero = () => {
 
         <section className="hero-slide hero-1"  >
         {  replayVideo === 2 && (<video playsInline autoPlay muted>
-            <source src={video3} type="video/mp4" />
+            <source src={isMobile ? videoMobile3 : video3} type="video/mp4" />
           </video>) }
           <div className="container">
             <div className="title">
                 <h1>The Revolution will be Decentralized.</h1>
-                <img className="hero-image-mobile" src="https://i.lensdump.com/i/rnJTvP.png" />
                 <div>
                   <h1>Own your node.</h1>
                   <h2>Accesible and reliable one-click private nodes for everybody.</h2>
