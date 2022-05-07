@@ -2,13 +2,19 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
+import { useParams } from 'react-router-dom';
+import i18n from '../i18n';
 
 import media from '../styles/media';
 import { palette } from '../styles/palette';
 import { useThemeContext } from '../contexts/ThemeContext';
 import { HashLink as Link } from 'react-router-hash-link';
+import senseiLogo from '../../public/sensei-logo-white.png';
 
 const Header = () => {
+  let { locale } = useParams();
+  locale = locale || 'us';
+
   const { pathname } = useLocation();
   const { isLight, toggleTheme } = useThemeContext();
   const [ menuOpened, setMenuOpened ]= useState(false);
@@ -39,7 +45,6 @@ const Header = () => {
       }
     }
     .menu {
-      width: 400px;
       ul {
         display:flex;
         li {
@@ -116,7 +121,8 @@ const Header = () => {
     right: 20px;
     top: 20px;
     button {
-      background: #000;
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
       color:#fff;
       border:none;
 
@@ -154,43 +160,52 @@ const Header = () => {
 
   return (
     <header css={[headerStyle(isLight)]}>
-      <div class="container">
-        <div class="logo-container">
+      <div className="container">
+        <div className="logo-container">
           <Link to="/" replace={pathname === '/'}>
-            <img src="/public/sensei-logo-white.png" />
+            <img src={senseiLogo} />
           </Link>
         </div>
         <div css={[StylesMenuMobile]}>
           <button onClick={handleToggleMenu} 
           className={`open ${menuOpened ? 'change' : ''}`}>
-            <div class="container">
-              <div class="bar1"></div>
-              <div class="bar2"></div>
-              <div class="bar3"></div>
+            <div className="container">
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
             </div>
 
           </button>
         </div>
-        <nav class="menu">
+        <nav className="menu">
           <ul>
             <li>
-              <Link onClick={() => setMenuOpened(false)} to="/#about-us">About</Link>
+              <Link onClick={() => setMenuOpened(false)} to={`/${locale}/#about-us`} dangerouslySetInnerHTML={i18n(locale, 'about-us')} />
             </li>
             <li>
-              <Link onClick={() => setMenuOpened(false)} to="/#services">
-                Services
-              </Link>
+              <Link onClick={() => setMenuOpened(false)} to={`/${locale}/#services`} dangerouslySetInnerHTML={i18n(locale, 'services')} />
             </li>
             <li>
-              <Link onClick={() => setMenuOpened(false)} to="/#team">
-                Team
-              </Link>
+              <Link onClick={() => setMenuOpened(false)} to={`/${locale}/#team`} dangerouslySetInnerHTML={i18n(locale, 'team')} />
             </li>
             <li>
-              <Link  onClick={() => setMenuOpened(false)} to="/#news">
-                News
-              </Link>
+              <Link  onClick={() => setMenuOpened(false)} to={`/${locale}/#news`} dangerouslySetInnerHTML={i18n(locale, 'news')} />
             </li>
+            { locale != 'es' && <li>
+              <Link onClick={() => setMenuOpened(false)} to="/es">
+                ES
+              </Link>
+              </li> }
+            { locale != 'pt' && <li>
+              <Link  onClick={() => setMenuOpened(false)} to="/pt">
+                PT
+              </Link>
+              </li> }
+            { locale != 'us' && <li>
+              <Link  onClick={() => setMenuOpened(false)} to="/">
+                EN
+              </Link>
+            </li> }
           </ul>
         </nav>
       </div>

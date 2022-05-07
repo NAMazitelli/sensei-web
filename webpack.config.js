@@ -38,6 +38,10 @@ module.exports = {
   entry: {
     app: resolve(__dirname, 'src/index'),
   },
+  devServer: {
+    contentBase: resolve(__dirname, './emailsignature'),
+    contentBasePublicPath: '/emailsignature'
+  },
   resolve: {
     modules: ['node_modules'],
     mainFiles: ['index'],

@@ -1,85 +1,84 @@
 import React from 'react';
 import { useState, createRef, useEffect } from 'react';
 import { css } from '@emotion/react';
+import { useParams } from 'react-router-dom';
+import i18n from '../../i18n';
 import media from '../../styles/media';
 import NewsIcon from '../icons/news';
-/*
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },
-  {
-    title: "Upcoming Tech Devs in Latam",
-    date: "12.3.22",
-    description: "Automating node deployment on mmultiple protocolsAutomating node deployment on mmultiple protocols",
-    picture: "https://i3.lensdump.com/i/rnZgbZ.png",
-    link: "techinsider.com",
-  },*/
+import axios from 'axios';
+const { DateTime } = require("luxon");
 
-const news = [
-
+const Oldnews = [
   {
-    title: "SenseiNode Releases a dockerfile for Algorand nodes",
+    title: "new-5-title",
+    date: "6.4.22",
+    description: "new-5-desc",
+    picture: "https://i.lensdump.com/i/rh3Xco.jpg",
+    link: "https://www.coindesk.com/business/2022/04/06/senseinode-raises-36m-as-latams-first-blockchain-infrastructure-firm/",
+    source: 'Coindesk'
+  },
+  {
+    title: "new-4-title",
+    date: "6.4.22",
+    description: "new-4-desc",
+    picture: "https://i1.lensdump.com/i/rh3GWC.webp",
+    link: "https://www.infobae.com/economia/2022/04/06/senseinode-como-funciona-la-startup-de-infraestructura-blockchain-en-la-que-invirtieron-5-fundadores-de-unicornios/",
+    source: 'Infobae',
+  },
+  {
+    title: "new-3-title",
     date: "8.3.22",
-    description: "Last week we released a Public Node on Algorand  for community development. Along with it we also made public a dockerfile to make it simple for anyone to host their own node. You can find here.",
+    description: "new-3-desc",
     picture: "https://i.lensdump.com/i/rPHAse.png",
     link: "https://twitter.com/SenseiNode/status/1490717931939979267?s=20&t=ntC06_86ERaJQ9YuuVyRlQ",
-    font: 'Twitter'
+    source: 'Twitter'
   },
   {
-    title: "SenseiNode launches a free public node on Algorand",
+    title: "new-2-title",
     date: "9.3.22",
-    description: "A public Algorand Node for community development. Hosted by Sensei Node Inc. To obtain access complete the following form",
+    description: "new-2-desc",
     picture: "https://i1.lensdump.com/i/rPHWDk.png",
     link: "https://algorand.senseinode.com/",
-    font: 'SenseiNode',
+    source: 'SenseiNode',
   },
   {
-    title: "The World of NFTs",
+    title: "new-1-title",
     date: "12.3.22",
-    description: "An Infobae special report on NFTs quoting our CTO Martin Fernandez",
+    description: "new-1-desc",
     picture: "https://i2.lensdump.com/i/rnjtr7.png",
     link: "https://www.infobae.com/america/tecno/2021/12/07/el-mundo-de-los-nfts-la-tecnologia-que-transforma-industrias-como-el-arte-y-los-videojuegos-pero-con-riesgos/",
-    font: 'Infobae Americas',
+    source: 'Infobae Americas',
   }
 ];
 
-const NewBox = ({title, date, description, picture, link, font}) => {
+
+const NewBox = ({title, date, description, picture, link, source}) => {
+  let { locale } = useParams();
+  locale = locale || 'us';
+
   return(
-  <a class="new-container" target="_blank" href={link}>
-    <h3>{title}</h3>
-    <span className="date">{date}</span>
-    <p className="title">{description}</p>
-    <div class="new-img" style={{backgroundImage: `url(${picture})`}}></div>
-    <div className="link-icon">
-      <a >
-        <NewsIcon />
-        <span>{font}</span>
-      </a>
-    </div>
-  </a>
+    <a className="new-container" target="_blank" onClick={handleOnClickNew} href={link}>
+      <h3>{title}</h3>
+      <span className="date">{date}</span>
+      <p className="title"> {description} </p>
+      <div className="new-img" style={{backgroundImage: `url(${picture})`}}></div>
+      <div className="link-icon">
+        <div className="icon-container">
+          <NewsIcon />
+          <span >{source}</span>
+        </div>
+      </div>
+    </a>
   );
 }
 
 const News = () => {
+  let { locale } = useParams();
+  locale = locale || 'us';
+  const [ news, setNews ]  = useState(false);
   const [ isDragging, setIsDragging ] = useState(false);
+  const [ isFetching, setIsFetching ] = useState(false);
+
   const [ position, setPosition ] = useState({
     top: 0,
     left: 0,
@@ -163,7 +162,7 @@ const News = () => {
           padding-top:0;
           color: #fff;
         }
-        .link-icon a  {
+        .link-icon .icon-container  {
           display: flex;
           flex-direction: row;
           position: absolute;
@@ -244,13 +243,38 @@ const News = () => {
     setIsDragging(false);
   }
 
+  useEffect( () => {
+    if (!isFetching) {
+      setIsFetching(true);
+      let lang;
+      if(!locale || locale == 'us'){
+        lang = 'en';
+      } else {
+        lang = locale
+      }
+    	axios
+			.get(`https://us-central1-senseiweb-d1c41.cloudfunctions.net/api/news/${lang}`)
+			.then((response) => {
+        const news = response.data
+        news.sort(function(a,b){
+          // Turn your strings into dates, and then subtract them
+          // to get a value that is either negative, positive, or zero.
+          return DateTime.fromFormat(a.date, 'd.m.yy').diff(DateTime.fromFormat(b.date, 'd.m.yy')).milliseconds
+        });
+				setNews(news);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+    }
+
+  }, []);
+
   return (
     <div id="news" css={[Styles]}>
-      <div class="container">
-        <span class="tag">
-          In the News
-        </span>
-        <h2>See who's talking about SenseiNode in the press.</h2>
+      <div className="container">
+        <span className="tag" dangerouslySetInnerHTML={i18n(locale, 'news-subtitle')} />
+        <h2 dangerouslySetInnerHTML={i18n(locale, 'news-title')} />
       </div>
 
       <div className="slider-container"
@@ -259,7 +283,7 @@ const News = () => {
         onMouseMove={handleMouseMove}
         ref={myRef}>
         <div className="news-container">
-          { news.map((newdata) => <NewBox {...newdata} />) }
+          {news && news.map((newdata, index) => <NewBox key={index} {...newdata} />) }
         </div>
       </div>
     </div>
